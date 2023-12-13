@@ -4,6 +4,9 @@ BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
+# Injecting the environment file at build time.
+cp $ENV_DIR/appsettings $BUILD_DIR/appsettings.json
+
 # Install .NET SDK v7.0
 apt-get update && apt-get install -y dotnet-sdk-7.0
 
