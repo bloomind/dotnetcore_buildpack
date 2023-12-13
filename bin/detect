@@ -1,0 +1,7 @@
+#!/bin/bash
+
+BUILD_DIR=${1:-}
+
+# Prints things and returns 0 if project contains a .csproj file
+# Returns 1 and prints nothing if else
+(cd $BUILD_DIR && ls | grep .csproj)

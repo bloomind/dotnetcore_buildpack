@@ -1,0 +1,14 @@
+#!/bin/bash
+
+BUILD_DIR=${1:-}
+CACHE_DIR=${2:-}
+ENV_DIR=${3:-}
+
+# Install .NET SDK v7.0
+apt-get update && apt-get install -y dotnet-sdk-7.0
+
+# Install .NET Runtime v7.0
+apt-get update && apt-get install -y aspnetcore-runtime-7.0
+
+# Build app
+dotnet build $BUILD_DIR/Galaxy_back.csproj /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary
