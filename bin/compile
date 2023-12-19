@@ -12,7 +12,7 @@ echo "Building app..."
 dotnet build $BUILD_DIR/Galaxy_back.csproj /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary && echo "Successfully built app !"
 
 cat <<EOF >"${BUILD_DIR}/start.sh"
-cd /bin/Debug/net7.0
+cd $BUILD_DIR/bin/Debug/net7.0
 exec dotnet Galaxy_back.dll
 EOF
 
