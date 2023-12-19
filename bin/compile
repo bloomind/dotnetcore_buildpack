@@ -13,7 +13,7 @@ dotnet build $BUILD_DIR/Galaxy_back.csproj /property:GenerateFullPaths=true /con
 
 cat <<EOF >"${BUILD_DIR}/start.sh"
 cd bin/Debug/net7.0
-exec dotnet Galaxy_back.dll
+exec dotnet Galaxy_back.dll &
 EOF
 
 chmod +x "${BUILD_DIR}/start.sh"
