@@ -7,16 +7,6 @@ ENV_DIR=${3:-}
 # Injecting the environment file at build time.
 cp $ENV_DIR/appsettings $BUILD_DIR/appsettings.json
 
-su root
-
-# Install .NET SDK v7.0
-echo "Installing dotnet sdk v7"
-apt-get install -y dotnet-sdk-7.0 && echo "Successfully installed dotnet-sdk-7.0 package"
-
-# Install .NET Runtime v7.0
-echo "Installing aspnetcore runtime v7.0"
-apt-get install -y aspnetcore-runtime-7.0 && echo "Successfully installed aspnetcore-runtime-7.0"
-
 # Build app
 echo "Building app..."
 dotnet build $BUILD_DIR/Galaxy_back.csproj /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary && echo "Successfully built app !"
