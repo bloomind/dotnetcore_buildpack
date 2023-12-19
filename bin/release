@@ -1,3 +1,6 @@
 #!/bin/bash
 
-cat << EOF EOF
+cat << EOF
+default_process_types:
+    web: dotnet Galaxy_back.dll
+EOF
