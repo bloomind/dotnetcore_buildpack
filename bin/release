@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cat << EOF
+addons: []
 default_process_types:
-    web: dotnet Galaxy_back.dll
+    web: ./start.sh
 EOF
