@@ -5,16 +5,14 @@ CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
 # Injecting the environment file at build time.
-cp $ENV_DIR/appsettings $BUILD_DIR/appsettings.json
-
-pwd | cat
+cp $ENV_DIR/appsettings $BUILD_DIR/appsettings.json 
 
 # Build app
 echo "Building app..."
 dotnet build $BUILD_DIR/Galaxy_back.csproj /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary && echo "Successfully built app !"
 
 cat <<EOF >"${BUILD_DIR}/start.sh"
-pwd | cat
+ls | cat
 cd $BUILD_DIR/bin/Debug/net7.0
 exec dotnet Galaxy_back.dll
 EOF
