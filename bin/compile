@@ -13,8 +13,7 @@ dotnet publish $BUILD_DIR/Galaxy_back.csproj /property:GenerateFullPaths=true /c
 
 cat <<EOF >"${BUILD_DIR}/start.sh"
 cd bin/Release/net7.0/publish
-echo $PORT | cat
-dotnet Galaxy_back.dll --urls=http://0.0.0.0:$PORT/
+dotnet Galaxy_back.dll --urls=http://0.0.0.0:\$PORT/
 EOF
 
 chmod +x "${BUILD_DIR}/start.sh"
