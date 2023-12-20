@@ -9,11 +9,11 @@ cp $ENV_DIR/appsettings $BUILD_DIR/appsettings.json
 
 # Build app
 echo "Building app..."
-dotnet build $BUILD_DIR/Galaxy_back.csproj /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary && echo "Successfully built app !"
+dotnet publish $BUILD_DIR/Galaxy_back.csproj /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary -c Release && echo "Successfully built app !"
 
 cat <<EOF >"${BUILD_DIR}/start.sh"
-cd bin/Debug/net7.0
-exec dotnet Galaxy_back.dll &
+cd bin/Release/net7.0/publish
+./Galaxy_back
 EOF
 
 chmod +x "${BUILD_DIR}/start.sh"
